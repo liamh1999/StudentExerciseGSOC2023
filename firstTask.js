@@ -1,6 +1,7 @@
-import * as THREE from './node_modules/three/build/three.module.js';
+import * as THREE from './node_modules/three/build/three.module';
 import { GLTFLoader } from './node_modules/three/examples/jsm/loaders/GLTFLoader.js';
-import { FontLoader } from 'three';
+import { FontLoader } from './node_modules/three/examples/jsm/loaders/FontLoader.js';
+import { TextGeometry } from './node_modules/three/examples/jsm/geometries/TextGeometry.js';
 
 
 
@@ -19,12 +20,12 @@ loader.load(
 
         scene.add(gltf.scene);
 
-        const textGeometry = new THREE.TextGeometry('Hello World', {
-            font: new FontLoader().load('fonts/helvetiker_regular.typeface.json'),
+        const textGeometry = new TextGeometry('Hello World Hello World Hello World', {
+            font: new FontLoader().load('node_modules/three/examples/fonts/helvetiker_regular.typeface.json'),
             size: 1,
             height: 0.2
         });
-        const textMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
+        const textMaterial = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
         const textMesh = new THREE.Mesh(textGeometry, textMaterial);
         textMesh.position.set(0, 2, -2); // TODO: Adjust position 
         scene.add(textMesh);
